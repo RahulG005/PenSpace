@@ -1,0 +1,77 @@
+{% extends 'client/navbar.html' %}
+
+{% block content %}
+<br>
+<div class="container bg-white shadow-md p-5 form-layout text-center">
+    <h5>Subscription Plans:</h5>
+</div>
+<br>
+
+<div class="row">
+    <!-- Standard Subscription -->
+    <div class="col-md-6">
+        <div class="container bg-white shadow-md p-5 form-layout text-center">
+            <h5>Standard Subscription</h5>
+            <hr>
+            <p>Join us for standard access here:</p>
+            <strong>(Limited article access)</strong>
+            <hr>
+            <div id="paypal-button-container-standard"></div>
+        </div>
+    </div>
+
+    <!-- Premium Subscription -->
+    <div class="col-md-6">
+        <div class="container bg-white shadow-md p-5 form-layout text-center">
+            <h5>Premium Subscription</h5>
+            <hr>
+            <p>Elevate your experience with premium access here:</p>
+            <strong>(Full article access)</strong>
+            <hr>
+            <div id="paypal-button-container-premium"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=ASU4hHfAXNMX9N95GF7O0vdUGcLGhX31fP0T3pX7As8avg8xiTTMYsQjgiscapV1JR0FDw7q7uDT_Crq&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+    paypal.Buttons({
+        style: {
+            shape: 'pill',
+            color: 'blue',
+            layout: 'vertical',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+            return actions.subscription.create({
+                /* Creates the subscription */
+                plan_id: 'P-78J714875B508025YM2BN2OY'
+            });
+        },
+        onApprove: function(data, actions) {
+
+            var current_url = '/client/create-subscription/' + data.subscriptionID + "/Standard"   
+            window.open(current_url,'_self')         
+        }
+    }).render('#paypal-button-container-standard'); // Renders the PayPal button for Standard subscription
+
+    paypal.Buttons({
+        style: {
+            shape: 'pill',
+            color: 'gold',
+            layout: 'vertical',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+            return actions.subscription.create({
+                /* Creates the subscription */
+                plan_id: 'P-4NW370625L333520GM2BOLKY'
+            });
+        },
+        onApprove: function(data, actions) {
+            var current_url = '/client/create-subscription/' + data.subscriptionID + "/Premium"   
+            window.open(current_url,'_self')    
+        }
+    }).render('#paypal-button-container-premium'); // Renders the PayPal button for Premium subscription
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'client/navbar.html' %}
+
+{% block content %}
+
+<br>
+<div class="container bg-white shadow-md p-5 form-layout text-center">
+
+    <h5>👋 Welcome, {{user.first_name}}</h5>
+
+
+</div>
+<br>
+<div class="container bg-white shadow-md p-5 form-layout text-center">
+
+    <h5>Subscription status: </h5>
+    <p>{{SubPlan}}</p>
+
+
+</div>
+
+{% endblock %}

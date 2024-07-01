@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(237, 215, 237) ;
+    overflow-x: hidden;
+}
+
+.form-layout{
+    width: 500px;
+    border-radius : 20px;
+}
