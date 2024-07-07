@@ -1,8 +1,8 @@
 # IMPORT django environ and initialize environment vaariables
 
 import environ
-env = environ.Env
-environ.Env.read_env
+env = environ.Env()
+environ.Env.read_env()
 
 
 
