@@ -10,24 +10,19 @@
 
 <div class="container bg-white shadow-md p-5 form-layout">
     <h3> Account details</h3>
-
     <p>You may update your account details below: </p>
-
     <br>
-
     <form method = "POST" autocomplete="off">
         {% csrf_token %}
         {{UpdateUserForm|crispy}}
-        <input type="submit" class="btn btn-success" value="Update details"/>
+        <input type="submit" class="btn btn-success w-100" value="Update details"/>
     </form>
-
-
 </div>
 
 <br>
-<div class="container bg-white shadow-md p-5 form-layout">
+<div class="container bg-light shadow-lg p-5 form-layout">
     <h3> Account deletion</h3>
-    <br>
+    <hr>
     <a href="{% url 'delete-account' %}"> Delete account</a>
 </div>
 <br>

@@ -7,16 +7,15 @@
 <br>
 
 <div class="container bg-white shadow-md p-5 form-layout">
-    <h3> Delete account</h3>
-
-    <p>You may delete your account below: </p>
-
+    <h3> Delete account </h3>
+    <hr>
+    <p> You may delete your account below: </p>    
     <br>
 
     <form method = "POST" autocomplete="off">
         {% csrf_token %}
 
-        <input type="submit" class="btn btn-danger" value="Delete account"/>
+        <input type="submit" class="btn btn-danger w-100 p-2" value="Delete account"/>
     </form>
 
     <br>
@@ -25,5 +24,6 @@
 
 
 </div>
+<br>
 
 {% endblock %}

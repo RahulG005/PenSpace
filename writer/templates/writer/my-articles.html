@@ -6,6 +6,7 @@
     {% for article in Allarticles %}
         <div class="container bg-white shadow-md p-5 form-layout">
             <h3>{{article.title}}</h3>
+            <br>
             {{article.content}}
             <br> <br>
             {{article.date_posted}}
@@ -16,9 +17,9 @@
                 <strong> Standard </strong>
             {% endif %}
             <hr>
-            <a href="{% url 'update-article' article.id %}"> update article</a>
-            <br> 
-            <a href="{% url 'delete-article' article.id %}"> Delete article</a>
+            <a class="btn btn-info w-100 p-2" href="{% url 'update-article' article.id %}"> update article</a>
+            <br> <br>
+            <a class="btn btn-info w-100 p-2" href="{% url 'delete-article' article.id %}"> Delete article</a>
         </div>
         <br>
     {% endfor %}

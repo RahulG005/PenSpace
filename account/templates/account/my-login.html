@@ -21,16 +21,27 @@
     <body>
         <br>
         <div class = "container bg-light shadow-lg p-5 form-layout">
-            <h1>Login</h1>
+            <h1> Login </h1>
+            <hr>
+            <p> Proceed to login to your account. </p>
             <br>
-
             <form method="POST" autocomplete="off">
                 {% csrf_token %}
 
                 {{LoginForm|crispy}}
                 <br>
-                <input type="submit" class="btn btn-success" value="Login"/>
+                <input type="submit" class="btn btn-success w-100" value="Login"/>
             </form>
+            <div class="text-center">
+
+                <a href="{% url 'register' %}"> Don't have an account? </a>
+                
+                <br> <br>
+    
+                <a href="{% url 'reset_password' %}"> Forgotten your password? </a>
+    
+            </div>
+    
         </div>
     </body>
 
