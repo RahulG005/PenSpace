@@ -95,9 +95,6 @@ def account_management(request):
 @login_required(login_url='my-login')
 def create_subscription(request,subID,plan):
 
-    if request.method != 'POST':
-        return HttpResponse('Permission denied')
-
     custom_user=CustomUser.objects.get(email=request.user)
 
     if not Subscription.objects.filter(user=request.user).exists():
